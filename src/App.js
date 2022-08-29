@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Input from './components/Input';
+import Task from './components/Task';
+
 
 function App() {
+  const [list, setList] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img src="data:image/png;base64,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" alt="ToDo List" />
+      <div className='intro'>
+
+      <h1>Ohjay's ToDo List!</h1>
+      </div>
+      
+
+
+    <h3>What to do?</h3>
+    <div className="main">
+        {list.map((task, i) => (
+        <Task task={task} setList={setList} index={i} list={list}/>
+        ))}
+      <Input list={list} setList={setList} />
+        </div>
     </div>
   );
 }

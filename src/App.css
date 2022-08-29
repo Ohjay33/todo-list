@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+.App{
+  background-color: aqua;
+  
+}
+
+button{
+  height: 25px;
+  /* width: 50px; */
+}
+
+img{
+  height: 100px;
+
+  
+  
+}
+
+.intro{
+  display: flex;
+  justify-content: center;
+}
+
+h1{
+  /* margin-left: 200px; */
+  /* margin-right: 200px; */
+}
+
+
+
